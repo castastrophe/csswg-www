@@ -1,0 +1,26 @@
+/* Top Page Navigation */
+
+	nav.page {
+		color: #eee;
+		text-align: end; }
+	nav.page > a,
+	nav.page > button {
+		color: #eee;
+		margin: 0 0.5em;
+		background: transparent;
+		border: 0;
+		padding: 0;
+		font: inherit;
+		cursor: pointer; }
+	nav.page > a:not(:hover):not(:focus),
+	nav.page > button:not(:hover):not(:focus-visible) {
+		opacity: 0.5; }
+	nav.page > a:focus-visible,
+	nav.page > button:focus-visible {
+		outline: 2px solid var(--color-highlight);
+		outline-offset: 2px;
+		border-radius: 0.125rem; }
+	.skip-to-content::after {
+		content: " \1F852"; /* heavy rightwards arrow */ }
+	.skip-to-translations::after {
+		content: " \1F310"; /* globe with meridians */ }

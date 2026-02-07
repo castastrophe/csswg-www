@@ -1,6 +1,8 @@
 name: build-and-deploy-staging
 run-name: ${{ github.actor }} is building the website
-on: [push]
+on:
+    push:
+        branches: [main]
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest

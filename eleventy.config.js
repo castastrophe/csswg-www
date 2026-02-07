@@ -5,6 +5,7 @@ import * as sass from "sass";
 
 /* Plugins */
 import { I18nPlugin } from "@11ty/eleventy";
+import i18n from 'eleventy-plugin-i18n';
 import pluginWebc from "@11ty/eleventy-plugin-webc";
 
 /**
@@ -26,7 +27,7 @@ export default async function(config) {
             transforms: [
                 async function(content) {
                     let { type, page } = this;
-                    
+
                     if (type !== 'css') return content;
 
                     // todo: look at why this is passing markdown content through the check
@@ -45,8 +46,16 @@ export default async function(config) {
 		defaultLanguage: "en", // Required, this site uses "en"
 	});
 
+    config.addPlugin(i18n, {
+        translations: {
+        },
+        fallbackLocales: {
+            "en-GB": "en",
+            "fr-FR": "fr",
+        }
+    });
+
     config.addBundle("css");
-    config.addBundle("js");
 
     config.addPassthroughCopy("assets");
 
@@ -80,6 +89,13 @@ export default async function(config) {
 		html: true,
 	}).disable("code"));
 
+    config.addFilter("language_name", (lang) => {
+        return new Intl.DisplayNames([lang], { type: "language" }).of(lang);
+    });
+    config.addShortcode("year", () => {
+        return new Date().getFullYear();
+    });
+
     return {
         dir: {
             input: "_content",
@@ -87,6 +103,6 @@ export default async function(config) {
             layouts: "../_includes/_layouts",
             data: "../_data",
         },
-        templateFormats: ["md", "webc", "njk", "scss", "js"],
+        templateFormats: ["md", "webc", "njk", "scss"],
     };
 };

@@ -1,8 +1,7 @@
-{% import "l10n/" + locale + ".njk" as l10n %}
-      <nav class="section qlinks">
-        <h2><a href="/get-involved/">{{ l10n.sections.involved }}</a></h2>
-        <ul>
-          <li><a href="/get-involved/browsers">{{ l10n.involved.browsers }}</a></li>
-          <li><a href="/get-involved">{{ l10n.involved.testing }}</a></li>
-        </ul>
-      </nav>
+<nav class="section qlinks">
+  <h2><a href="{{ "/get-involved/" | locale_url }}">{{ site.sections.involved }}</a></h2>
+  <ul>
+    <li><a href="{{ "/get-involved/browsers" | locale_url }}">{{ site.involved.browsers }}</a></li>
+    <li><a href="{{ "/get-involved/testing" | locale_url }}">{{ site.involved.testing }}</a></li>
+  </ul>
+</nav>

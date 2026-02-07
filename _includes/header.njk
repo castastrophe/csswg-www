@@ -1,25 +1,25 @@
-{% import "l10n/" + locale + ".njk" as l10n %}
 <header class="page">
   <div class="sitename" lang="en">
-    <a class="home w3c" href="https://www.w3.org/">
-      <img src="/assets/images/w3c.svg" alt="W3C">
+    <a class="home w3c" href="https://www.w3.org/" aria-label="W3C home">
+      <img src="/assets/images/w3c.svg" alt="">
     </a>
     <a class="home csswg" href="/">
       Cascading Style Sheets Working Group
     </a>
   </div>
-  
-  <nav class="site">
+
+  <nav class="site" aria-label="Primary">
     <ul>
-      <li><a href="/">{{ l10n.sections.home }}</a></li>
-      <li><a href="/about">{{ l10n.sections.about }}</a></li>
-      <li><a href="/learn">{{ l10n.sections.learn }}</a></li>
-      <li><a href="/specs">{{ l10n.sections.specs }}</a></li>
-      <li><a href="/get-involved">{{ l10n.sections.involved }}</a></li>
+      <li><a href="{{ "/" | locale_url }}">{{ site.sections.home }}</a></li>
+      <li><a href="{{ "/about" | locale_url }}">{{ site.sections.about }}</a></li>
+      <li><a href="{{ "/learn" | locale_url }}">{{ site.sections.learn }}</a></li>
+      <li><a href="{{ "/specs" | locale_url }}">{{ site.sections.specs }}</a></li>
+      <li><a href="{{ "/get-involved" | locale_url }}">{{ site.sections.involved }}</a></li>
     </ul>
-    <form class="search">
-      <input name="q" type="search">
-      <input type="submit" value="{{ l10n.top.search }}">
+    <form class="search" role="search">
+      <label for="site-search" class="visually-hidden">{{ site.top.search }}</label>
+      <input id="site-search" name="q" type="search">
+      <input type="submit" value="{{ site.top.search }}">
     </form>
   </nav>
 </header>

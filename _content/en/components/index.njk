@@ -1,0 +1,61 @@
+---
+section: "home"
+layout: home.njk
+title: Component Library
+eleventyExcludeFromCollections: true
+permalink: /components/
+---
+
+<section class="banner">
+  <div class="intro">
+    <h1>Component Library</h1>
+    <p>Unlinked reference page exercising each WebC component so they actually
+      have a consumer. Visit <code>/components/</code> directly &mdash; this
+      page is excluded from collections and search engine indexing.</p>
+  </div>
+</section>
+
+<h2><code>&lt;date-box&gt;</code></h2>
+<p>Stacked day/month/year box. Provide values via named slots; pass <code>datetime</code> (ISO 8601) for machine-readable semantics on the wrapped <code>&lt;time&gt;</code> element.</p>
+
+<date-box datetime="2010-11-05">
+  <span slot="day">5</span>
+  <span slot="month">November</span>
+  <span slot="year">2010</span>
+</date-box>
+
+<h2><code>&lt;input&gt;</code></h2>
+<p>Forwards all standard HTML input attributes (type, name, value, placeholder, etc.).</p>
+
+<form>
+  <input type="text" name="example-text" placeholder="text input">
+  <input type="search" name="example-search" placeholder="search input">
+  <input type="email" name="example-email" placeholder="email input">
+</form>
+
+<h2><code>&lt;submit&gt;</code></h2>
+<p>Submit button with themed styling.</p>
+
+<form><submit></submit></form>
+
+<h2><code>&lt;list&gt;</code></h2>
+<p>Renders an unordered list from an <code>items</code> array. Use the <code>:</code>
+  prefix so the value parses as a JS expression. (Note: the array is also forwarded
+  as an HTML attribute on the rendered <code>&lt;ul&gt;</code> &mdash; harmless but
+  cosmetic.)</p>
+
+<list :items='["First item", "Second item", "Third item"]'></list>
+
+<h2><code>&lt;table-styled&gt;</code></h2>
+<p>Data-driven styled table. Pass <code>caption</code> (string), and <code>headers</code>
+  / <code>rows</code> arrays with the <code>:</code> expression prefix.</p>
+
+<table-styled
+  caption="Recent CSS Specifications"
+  :headers='["Spec", "Status", "Year"]'
+  :rows='[["CSS 2.1", "REC", "2011"], ["CSS Color 4", "CR", "2022"], ["CSS Cascade 5", "WD", "2024"]]'></table-styled>
+
+<h2><code>&lt;textarea&gt;</code></h2>
+<p>Multi-line text input.</p>
+
+<textarea name="example-textarea" rows="3"></textarea>

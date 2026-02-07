@@ -1,0 +1,41 @@
+/* Forms */
+
+	input {
+		padding: .15em .5em .25em .5em;
+		border: thin solid #ddc;
+		border-radius: 4px; }
+
+	a.button,
+	button,
+	input[type=submit] {
+		background: #025a9a;
+		background-image: linear-gradient(#025A9A, #0C3D5F);
+		color: #fff;
+		text-shadow: 1px 1px 1px #000;
+		text-transform: uppercase;
+		text-decoration: none !important;
+		display: inline-block;
+		padding: 0.2em 1em;
+		border-radius: 3px;
+		border: 0; }
+	button,
+	input[type=submit] {
+		padding: 0.2em 1em; }
+
+	.button:hover,
+	.button:active,
+	button:hover,
+	button:active,
+	input[type=submit]:hover,
+	input[type=submit]:active {
+		text-decoration: none;
+		background-image: linear-gradient(#0C3D5F, #025A9A); }
+
+	.button:focus-visible,
+	button:focus-visible,
+	input[type=submit]:focus-visible,
+	input[type=text]:focus-visible,
+	input[type=search]:focus-visible,
+	textarea:focus-visible {
+		outline: 2px solid var(--color-highlight);
+		outline-offset: 2px; }

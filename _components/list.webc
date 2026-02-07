@@ -1,5 +1,13 @@
-<ul @attributes webc:root :items="items">
-    <li webc:for="item in items" @text="item"></li>
+<ul webc:root="override" @attributes>
+    <li webc:for="item of items" @text="item"></li>
 </ul>
 
-<style></style>
+<style webc:scoped="themed-list">
+    :host {
+        margin: 0 0 1.5em 0;
+    }
+
+    :host > li {
+        margin-left: 2em;
+    }
+</style>

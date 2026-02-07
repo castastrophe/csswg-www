@@ -1,5 +1,7 @@
-{% import "l10n/" + locale + ".njk" as l10n %}
-  <nav class="page">
-    <a class="skip-to-content" href="#main">{{ l10n.top.skipToContent }}</a>
-    <a class="skip-to-translations" href="#translations">{{ l10n.top.translations }}</a>
-  </nav>
+<nav class="page" aria-label="Page utilities">
+  <a class="skip-to-content" href="#main">{{ site.top.skipToContent }}</a>
+  <button type="button" class="skip-to-translations"
+          popovertarget="translations-popover">
+    {{ site.top.translations }}
+  </button>
+</nav>

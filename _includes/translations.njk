@@ -1,11 +1,32 @@
-  <nav id="translations">
-    <h2>Translations</h2>
-    {%- for lgg in site.languages %}
-      {%- set translatedUrl = "/" + lgg.code + "/" %} 
-      <a href="{{ translatedUrl }}">{{ lgg.label }}</a>
-    {%- endfor %}
-    <footer>
-      <a id="about-translation"
-         href="http://www.w3.org/Style/CSS/translating">More about translations</a>
-    </footer>
-  </nav>
+{% set otherLinks = page.url | locale_links %}
+<div id="translations-popover" popover="auto" class="translations-popover"
+     aria-labelledby="translations-title">
+  <header>
+    <h2 id="translations-title">{{ site.top.translations }}</h2>
+    <button type="button" class="close"
+            popovertarget="translations-popover" popovertargetaction="hide"
+            aria-label="{{ site.top.translationsClose }}">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </header>
+
+  <ul>
+    <li>
+      <a href="{{page.url}}" lang="{{page.lang}}" hreflang="{{page.lang}}" aria-current="page">
+        <span>{{page.lang | language_name}}</span>
+        <span class="check" aria-hidden="true">&check;</span>
+      </a>
+    </li>
+    {% for link in page.url | locale_links %}
+    <li>
+      <a href="{{link.url}}" lang="{{link.lang}}" hreflang="{{link.lang}}">
+        <span>{{link.label}}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <footer>
+    <a href="https://www.w3.org/Style/CSS/translating">{{ site.top.translationsAbout }}</a>
+  </footer>
+</div>

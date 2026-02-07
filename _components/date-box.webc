@@ -1,0 +1,27 @@
+<time webc:root @attributes>
+    <span class="day"><slot name="day"></slot></span>
+    <span class="month"><slot name="month"></slot></span>
+    <span class="year"><slot name="year"></slot></span>
+</time>
+
+<style webc:scoped="date-box">
+    /* Stacked day/month/year box. Provide day/month/year via named slots. */
+    :host {
+        display: inline-block;
+        border: 1px solid var(--color-theme);
+        padding: .2rem .5rem;
+        font-size: .8rem;
+        color: var(--true-white);
+        width: min-content;
+        text-align: center;
+        line-height: 1.4;
+        background-color: var(--color-theme-strong);
+        font-family: "League Spartan Variable", "Helvetica Neue", Helvetica, Arial, Verdana, Geneva, sans-serif;
+    }
+
+    :host .day {
+        display: block;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+</style>

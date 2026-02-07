@@ -1,0 +1,35 @@
+<table webc:root="override" @attributes>
+    <caption webc:if="caption" @text="caption"></caption>
+    <thead webc:if="headers">
+        <tr>
+            <th webc:for="h of headers" @text="h"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr webc:for="row of rows">
+            <td webc:for="cell of row" @text="cell"></td>
+        </tr>
+    </tbody>
+</table>
+
+<style webc:scoped="table-styled">
+    :host {
+        border-collapse: collapse;
+    }
+
+    :host th,
+    :host td {
+        text-align: left;
+        padding: 0.125em 0.5em 0.25em 0.5em;
+        line-height: 1.4;
+    }
+
+    :host caption {
+        font-family: var(--special-font);
+        font-size: 1.5rem;
+        line-height: 1;
+        margin-bottom: 0.5em;
+        text-align: left;
+        caption-side: top;
+    }
+</style>

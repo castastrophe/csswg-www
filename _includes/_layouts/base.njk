@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{ page.lang }}">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="color-scheme" content="light dark">
+		<meta name="description" content="{{ site.description or page.description }}">
+		{% if noindex or eleventyExcludeFromCollections %}<meta name="robots" content="noindex">{% endif %}
+		<title>{{ title }}{% if site.title %} - {{ site.title }}{% endif %}</title>
+
+		{% for link in page.url | locale_links %}
+		<link rel="alternate" hreflang="{{link.lang}}" href="{{link.url}}">
+		{% endfor %}
+
+		<link rel="stylesheet" href="{{ '/css/styles.css' | url }}">
+		{% set bundleCssUrl %}{% getBundleFileUrl "css" %}{% endset %}
+		{% if bundleCssUrl %}<link rel="stylesheet" href="{{ bundleCssUrl }}">{% endif %}
+	</head>
+	<body>
+		{% include "top.njk" %}
+		<div class="page">
+			{% include "header.njk" %}
+			{% block main %}
+				<main id="main">
+					<article class="page">
+						{{ content | safe }}
+					</article>
+				</main>
+			{% endblock %}
+			{% include "footer.njk" %}
+		</div>
+		{% include "translations.njk" %}
+		<script type="module" src="{{ '/assets/js/all.js' | url }}"></script>
+	</body>
+</html>

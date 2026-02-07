@@ -1,25 +1,9 @@
+/**
+ * Site-wide constants. Locale-specific strings live in
+ * _content/<lang>/<lang>.11tydata.js under the same `site` namespace
+ * and are deep-merged with these values on each page.
+ */
 export default {
-    buildTime: new Date(),
     name: "CSS WG",
     twitter: "@csswg",
-    languages: [
-        {
-          label: "english",
-          code: "en"
-        },
-        {
-          label: "français",
-          code: "fr"
-        }
-    ],
-    en: {
-      locale: "en",
-      metaTitle: "Title in english",
-      metaDescription: "Description in english"
-    },
-    fr: {
-      locale: "fr",
-      metaTitle: "Titre en français",
-      metaDescription: "Description en français"
-    }
-  };
+};

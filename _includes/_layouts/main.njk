@@ -1,33 +1,10 @@
-<!doctype html>
-<html lang="{{ locale }}">
-  <head>
-    <meta charset="utf-8"/>
-    <title>{{ title }} - {{ locale.metaTitle }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "_layouts/base.njk" %}
 
-    {% css %}
-    @import "{{ '/assets/css/styles.css' | url }}";
-    {% endcss %}
-
-    <link rel="stylesheet" href="{% getBundleFileUrl "css" %}">
-    
-    {% js %}
-    import "{{ '/assets/js/all.js' | url }}";
-    {% endjs %}
-  </head>
-  <body>
-    {% include "top.njk" %}
-    <div class="page">
-      {% include "header.njk" %}
-      <main id="main" class="section">
-        <article class="page">
-          {{ content | safe }}
-        </article>
-        {% include "section-nav-" + section + ".njk" %}
-      </main>
-      {% include "footer.njk" %}
-    </div>
-    {% include "translations.njk" %}
-  </body>
-  <script type="module" src="{% getBundleFileUrl "js" %}"></script>
-</html>
+{% block main %}
+	<main id="main" class="section">
+		<article class="page">
+			{{ content | safe }}
+		</article>
+		{% include "section-nav-" + section + ".njk" %}
+	</main>
+{% endblock %}

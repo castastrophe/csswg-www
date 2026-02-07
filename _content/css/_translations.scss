@@ -1,0 +1,152 @@
+@use "config";
+
+/* Translations popover */
+
+	/* Anchor name on the trigger button */
+	.skip-to-translations {
+		anchor-name: --translations-trigger;
+	}
+
+	.translations-popover {
+		background: var(--color-background);
+		border: 0;
+		border-top-left-radius: 0.5rem;
+		color: var(--color-text);
+
+		inline-size: min(90vw, 22rem);
+		/* reset browser defaults for popover element */
+		margin: 0;
+		padding: 0;
+		corner-shape-top-left: squircle(0.5rem);
+		box-shadow: 0 0.5rem 2rem hsl(0 0% 0% / 0.25);
+
+		/* Modern anchor positioning: below the trigger, right-aligned */
+		position-anchor: --translations-trigger;
+		position-area: bottom span-left;
+		margin-block-start: 0.5rem;
+		margin-inline-end: -0.5rem;
+		position-try-fallbacks: flip-block; /* flip above if no space below */
+
+		/* Fallback for browsers without anchor positioning (e.g. Firefox as of early 2026) */
+		@supports not (anchor-name: --x) {
+			inset-block-start: 3rem;
+			inset-inline-end: 1rem;
+			position: fixed;
+		}
+
+		/* Soft fade-in when shown via popover API */
+		opacity: 0;
+		transform: translateY(-0.25rem);
+		transition: opacity 150ms, transform 150ms, overlay 150ms allow-discrete, display 150ms allow-discrete;
+
+		&:popover-open {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		@starting-style {
+			&:popover-open {
+				opacity: 0;
+				transform: translateY(-0.25rem);
+			}
+		}
+
+		header {
+			align-items: center;
+			border-block-end: 1px solid var(--color-theme-weak);
+			display: flex;
+			gap: 1rem;
+			justify-content: space-between;
+			padding: 0.75rem 1rem;
+		}
+
+		h2 {
+			font-size: 1.125rem;
+			margin: 0;
+			text-transform: none;
+		}
+
+		.close {
+			background: transparent;
+			block-size: 2rem;
+			border: 0;
+			border-radius: 0.25rem;
+			color: inherit;
+			cursor: pointer;
+			font-size: 1.5rem;
+			inline-size: 2rem;
+			line-height: 1;
+			padding: 0;
+
+			&:hover {
+				background: var(--color-theme-weak);
+			}
+
+			&:focus-visible {
+				outline: 2px solid var(--color-highlight);
+				outline-offset: 2px;
+			}
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0.5rem;
+		}
+
+		li {
+			margin: 0;
+		}
+
+		a {
+			align-items: center;
+			border-radius: 0.25rem;
+			color: var(--color-link);
+			display: flex;
+			gap: 1rem;
+			justify-content: space-between;
+			padding: 0.5rem 0.75rem;
+			text-decoration: none;
+
+			&:hover {
+				background: var(--color-theme-weak);
+				text-decoration: underline;
+			}
+
+			&:focus-visible {
+				outline: 2px solid var(--color-highlight);
+				outline-offset: -2px;
+			}
+
+			&[aria-current="page"] {
+				background: var(--color-theme-weak);
+				cursor: default;
+				font-weight: bold;
+			}
+
+			.check {
+				color: var(--color-theme);
+				font-size: 1.125rem;
+				font-weight: bold;
+			}
+		}
+
+		footer {
+			border-block-start: 1px solid var(--color-theme-weak);
+			font-size: 0.875rem;
+			padding: 0.75rem 1rem;
+			text-align: center;
+		}
+
+		footer a {
+			color: inherit;
+			display: inline;
+			padding: 0;
+			text-decoration: underline;
+
+			&:hover, &:focus-visible {
+				background: transparent;
+				color: var(--color-link);
+			}
+		}
+	}

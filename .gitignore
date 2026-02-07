@@ -36,7 +36,7 @@ node_modules/
 
 # publish directory
 public
-_site/*
+_site/
 
 .DS_Store
 
