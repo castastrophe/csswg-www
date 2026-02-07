@@ -1,0 +1,3 @@
+<textarea @attributes webc:root :name="name"></textarea>
+
+<style></style>

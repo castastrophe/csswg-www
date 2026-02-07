@@ -1,0 +1,5 @@
+<ul @attributes webc:root :items="items">
+    <li webc:for="item in items" @text="item"></li>
+</ul>
+
+<style></style>

@@ -1,14 +1,14 @@
-# A work in progress
+> ⚠️ This is still a work in progress, please pardon our dust! 🧹
 
-I'm using this README as Rachel's random thoughts right now. Ultimately I'll have some better info for future contributors.
+## Geting started
 
-## Get Started
+To get started contributing to this project...
 
-Check this out and run `npm install`.
+Check this out and run `yarn install`.
 
-Start running 11ty with `npm start` or `yarn start`. Or to use language negotiation, use `yarn serve` or `npm run serve`. The language negotiation server doesn't watch and run builds so if you change things you need to stop it with Ctrl-C and start it up again to trigger a build.
+Start running 11ty with `yarn start`. Or to use language negotiation, use `yarn serve` or `npm run serve`. The language negotiation server doesn't watch and run builds so if you change things you need to stop it with Ctrl-C and start it up again to trigger a build.
 
-If you want to work on the CSS in the Pattern Library, run `gulp watch patterns`. Any changes ot the CSS will be copied into the 11ty build so next time you run that the new stylesheet will be picked up,
+If you want to work on the CSS in the Pattern Library, run `gulp watch patterns`. Any changes to the CSS will be copied into the 11ty build so next time you run that the new stylesheet will be picked up,
 
 Templating for 11ty and the pattern library is [nunjucks](https://mozilla.github.io/nunjucks/).
 

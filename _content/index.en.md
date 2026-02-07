@@ -11,8 +11,7 @@ title: CSS Working Group Home
     <h1>What is CSS?</h1>
     <p><dfn>Cascading Style Sheets</dfn> (CSS) is a simple mechanism for
       adding style (e.g. fonts, colors, spacing) to Web documents.
-      <a href="learn">Learn more about CSS</a> and how to use it for
-      your website.</p>
+      <a href="learn">Learn more about CSS</a> and how to use it for your website.</p>
     <p>The <a href="about">CSS Working Group</a> is responsible for
       maintaining the <a href="Specs">CSS standards</a>
       and developing the future of CSS.

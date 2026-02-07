@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     buildTime: new Date(),
     name: "CSS WG",
     twitter: "@csswg",

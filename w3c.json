@@ -1,6 +1,9 @@
 {
-    "group": 32061
-  , "contacts":   ["svgeesus", "xfq"]
-  , "policy": "open"
-  , "repo-type": "homepage"
+  "group": 32061,
+  "contacts": [
+    "svgeesus",
+    "xfq"
+  ],
+  "policy": "open",
+  "repo-type": "homepage"
 }
